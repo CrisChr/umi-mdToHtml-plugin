@@ -1,0 +1,22 @@
+{"compilerOptions": {
+  "target": "es5",
+  "module": "commonjs",
+  "moduleResolution": "node",
+  "importHelpers": true,
+  "esModuleInterop": true,
+  "sourceMap": false,
+  "baseUrl": "./",
+  "strict": true,
+  "paths": {
+  },
+  "allowSyntheticDefaultImports": true,
+  "outDir": "./lib",
+  "skipLibCheck": true,
+  "typeRoots": ["node_modules/@types", "typings.d.ts"]
+},
+"include": [
+  "src/**/*",
+  "typings.d.ts"
+],
+"exclude": []
+}
