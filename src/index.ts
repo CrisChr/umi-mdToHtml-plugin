@@ -20,7 +20,7 @@ export default (api:IApi) => {
   api.onGenerateFiles({
     fn: () => {
       const {mdToHtml} = api.userConfig;
-      const template = readFileSync(join(__dirname, '../template/compiler.ts'), 'utf8');
+      const template = readFileSync(join(__dirname, '../template/to-html.ts'), 'utf8');
       api.writeTmpFile({
         path: `${DIR_NAME}/index.ts`,
         content: Mustache.render(template.toString(), {
