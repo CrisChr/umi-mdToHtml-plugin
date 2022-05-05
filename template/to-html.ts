@@ -1,6 +1,6 @@
 
-const reg_content = /^(.+?)\s/;
-const reg_sharp = /^\#\s/; // #
+const reg_content = /^(.+?)\s/; // md标记外的所有内容
+const reg_sharp = /^\#/; // #
 const reg_line = /^\-/; // -
 const reg_number = /^\d/; //有序列表
 
@@ -85,7 +85,6 @@ const createHtmlTree = (mdArr: string[]) => {
 
   console.log('html object: ', htmlObj);
 
-
   return htmlObj;
 }
 
@@ -98,16 +97,17 @@ const mdToHtml = () => {
   let htmlStr: string = '';
   for(let k in htmlPool){
     let item = htmlPool[k];
+    let htmlTag = k.split('-')[0];
     if(item.type === 'single'){
       item.tagContents.forEach((tag: string) => {
         htmlStr += tag;
       })
     }else if(item.type === 'wrap'){
-      let list = `<${k}>`;
+      let list = `<${htmlTag}>`;
       item.tagContents.forEach((tag: string) => {
         list += tag;
       });
-      list += `</${k}>`;
+      list += `</${htmlTag}>`;
       htmlStr += list;
     }
   }
